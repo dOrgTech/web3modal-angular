@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@dorgtech/web3modal-ts": "^1.0.2"
+    "@dorgtech/web3modal-ts": "^1.1.0"
   }
 }
