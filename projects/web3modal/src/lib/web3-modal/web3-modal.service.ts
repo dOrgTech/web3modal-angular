@@ -40,15 +40,12 @@ export class Web3ModalService {
 
     this.shouldOpen.pipe(take(1)).subscribe({
       next: (open) => {
+        console.log(onSuccess$)
         if (!open && !onSuccess$.isStopped) {
           onSuccess$.error('Dismissed modal');
         }
       }
     })
-
-    if (!this.shouldOpen && !onSuccess$.isStopped) {
-      onSuccess$.error('Dismissed modal');
-    }
 
     return onSuccess$.toPromise();
   }
