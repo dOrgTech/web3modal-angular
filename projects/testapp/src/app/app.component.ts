@@ -43,4 +43,8 @@ export class AppComponent {
     const provider = await this.web3ModalService.open()
     console.log(provider)
   }
+
+  async resetProvider() {
+    this.web3ModalService.clearCachedProvider()
+  }
 }
