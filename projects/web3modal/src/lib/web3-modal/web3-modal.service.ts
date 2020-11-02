@@ -25,12 +25,10 @@ export class Web3ModalService {
     return await new Promise((resolve, reject) => {
       this.web3WalletConnector.providerController.on(CONNECT_EVENT, provider => {
         resolve(provider);
-        this.close()
       });
   
       this.web3WalletConnector.providerController.on(ERROR_EVENT, error => {
         reject(error);
-        this.close()
       });
 
       this.shouldOpen.next(true)
@@ -42,6 +40,8 @@ export class Web3ModalService {
           }
         }
       })
+    }).finally(() => {
+      this.close()
     })
   }
 
